@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Beer reviewer</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/submit.html">Submit a review</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div>
+        <h2>Welcome!</h2>
+        <br>
+        <p>
+          Welcome to Beer Reviewer – the ultimate destination for beer lovers around the world! Our website provides a
+          platform for enthusiasts to share their experiences and opinions about different beers, connect with
+          like-minded individuals, and discover new brews to try. Whether you’re a seasoned beer connoisseur or just
+          starting to explore the world of beer, Beer Reviewer is the perfect place for you. Our user-friendly interface
+          allows you to quickly and easily submit reviews, rate beers, and share your thoughts with other members of our
+          community. So, come join us and start your journey towards finding your new favorite brew today!
+          If you want to submit a review yourself, click <a href="/submit.html">here</a>
+        </p>
+        <br>
+      </div>
+      <div>
+        <h2>Posts</h2>
+        <ul>
+          {% for post in posts %}
+          <li>
+            <h3><a href="{{ post.url }}">{{ post.beer }}</a> review by {{ post.user }}</h3>
+            <p>Beer was drank on {{ post.date_drank | date("%Y-%m-%d") }}</p>
+            <p>Rating: {{ post.rating}}</p>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
