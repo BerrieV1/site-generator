@@ -22,7 +22,7 @@ def generate_html(directory, template, jinja_env):
 
 
 def main():
-    jinja_env = Environment(loader=FileSystemLoader("./templates"))
+    jinja_env = Environment(loader=FileSystemLoader("templates"))
 
     for directory, template in [("posts", "post.html"), ("pages", "page.html"), ("home", "index.html")]:
         generate_html(directory, template, jinja_env)
