@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
     <title>Beer reviewer</title>
   </head>
   <body>
@@ -35,8 +34,8 @@
           {% for post in posts %}
           <li>
             <h3><a href="{{ post.url }}">{{ post.beer }}</a> review by {{ post.user }}</h3>
-            <p>Beer was drank on {{ post.date_drank | date("%Y-%m-%d") }}</p>
-            <p>Rating: {{ post.rating}}</p>
+            <p>Beer was drank on {{ post.date_drank }}</p>
+            <p>Rating: {{ post.rating }}</p>
           </li>
           {% endfor %}
         </ul>
