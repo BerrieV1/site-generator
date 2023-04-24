@@ -3,6 +3,8 @@ import os
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
+posts = []
+
 
 def generate_html(directory, template, jinja_env):
     html_template = jinja_env.get_template(template)
@@ -12,9 +14,11 @@ def generate_html(directory, template, jinja_env):
                 content = md_file.read()
             yaml_content, md_content = content.split("---")[1:]
             yaml_var = yaml.safe_load(yaml_content)
+            if directory == "posts":
+                posts.append(yaml_var)
             output_file = os.path.join("html", file.replace(".md", ".html"))
             with open(output_file, "w") as output:
-                output.write(html_template.render(**yaml_var, content=markdown.markdown(md_content)))
+                output.write(html_template.render(**yaml_var, content=markdown.markdown(md_content), posts=posts))
 
 
 def main():
